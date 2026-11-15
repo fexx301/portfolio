@@ -139,7 +139,8 @@ export default function Hero() {
   useEffect(() => {
     const canvas  = canvasRef.current
     const section = sectionRef.current
-    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const gl = !reduceMotion && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
 
     if (!gl) {
       canvas.style.background =
@@ -202,7 +203,7 @@ export default function Hero() {
     resize()
     window.addEventListener('resize', resize)
 
-    let rafId
+    let rafId = 0
     function frame(ts) {
       const t = ts * 0.001
       const prevSmx = smx, prevSmy = smy
@@ -222,9 +223,20 @@ export default function Hero() {
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
       rafId = requestAnimationFrame(frame)
     }
-    rafId = requestAnimationFrame(frame)
+
+    // Only draw while the hero is on screen.
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        if (!rafId) rafId = requestAnimationFrame(frame)
+      } else {
+        cancelAnimationFrame(rafId)
+        rafId = 0
+      }
+    })
+    io.observe(section)
 
     return () => {
+      io.disconnect()
       cancelAnimationFrame(rafId)
       window.removeEventListener('resize', resize)
       section.removeEventListener('mousemove',  onMove)

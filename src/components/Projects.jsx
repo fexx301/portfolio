@@ -17,6 +17,8 @@ const tagColorMap = {
   'Next.js':    'bg-sky-400/15 border-sky-400/30 text-sky-200',
   React:        'bg-sky-400/15 border-sky-400/30 text-sky-200',
   JavaScript:   'bg-sky-400/15 border-sky-400/30 text-sky-200',
+  TypeScript:   'bg-sky-400/15 border-sky-400/30 text-sky-200',
+  'Three.js':   'bg-sky-400/15 border-sky-400/30 text-sky-200',
   // Security tooling — rose
   dalfox:       'bg-rose-500/15 border-rose-500/30 text-rose-200',
   wafw00f:      'bg-rose-500/15 border-rose-500/30 text-rose-200',
@@ -206,20 +208,28 @@ export default function Projects() {
                   <p className="text-grey mb-6 flex-grow leading-relaxed">{project.description}</p>
 
                   <div className="flex gap-4">
-                    <a
-                      href={project.link}
-                      className="flex items-center gap-2 text-sm text-white hover:text-accent-light transition-colors"
-                    >
-                      <ExternalLink size={16} />
-                      Live Demo
-                    </a>
-                    <a
-                      href={project.github}
-                      className="flex items-center gap-2 text-sm text-grey hover:text-white transition-colors"
-                    >
-                      <GithubIcon className="w-4 h-4" />
-                      Source
-                    </a>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-sm text-white hover:text-accent-light transition-colors"
+                      >
+                        <ExternalLink size={16} />
+                        Live Demo
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-sm text-grey hover:text-white transition-colors"
+                      >
+                        <GithubIcon className="w-4 h-4" />
+                        Source
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

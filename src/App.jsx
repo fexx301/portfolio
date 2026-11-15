@@ -1,10 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { lazy, Suspense, useEffect, useRef } from 'react'
 import Lenis from '@studio-freight/lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import ErrorBoundary from './components/ErrorBoundary'
-import Scene3D from './components/Scene3D'
 import ScrollFin from './components/ScrollFin'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -19,15 +18,17 @@ import { useScrollAnimation } from './hooks/useScrollAnimation'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// three.js + postprocessing are most of the bundle; load them after the content paints.
+const Scene3D = lazy(() => import('./components/Scene3D'))
+
 function App() {
   useScrollAnimation()
   const reduceMotion = useRef(window.matchMedia('(prefers-reduced-motion: reduce)').matches).current
 
-  // With reduced motion the 3D scene never renders, so nothing signals the
-  // preloader — dismiss it here once the app has mounted.
+  // Dismiss the preloader once the content has mounted; the 3D background loads in behind it.
   useEffect(() => {
-    if (reduceMotion) window.__hidePreloader?.()
-  }, [reduceMotion])
+    window.__hidePreloader?.()
+  }, [])
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -54,7 +55,11 @@ function App() {
   return (
     <div className="relative min-h-screen">
       <ErrorBoundary>
-        {!reduceMotion && <Scene3D />}
+        {!reduceMotion && (
+          <Suspense fallback={null}>
+            <Scene3D />
+          </Suspense>
+        )}
       </ErrorBoundary>
       <ScrollFin />
       <div className="relative z-10">

@@ -9,12 +9,10 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-// Fade out the instant preloader. Scene3D calls window.__hidePreloader() once
-// the WebGL context is live so the loader stays until the 3D scene is ready.
-// A minimum on-screen time lets the terminal reveal play; the safety timeout
-// guarantees it clears even if the scene never signals (WebGL fails, reduced
-// motion skips the scene, etc.).
-const MIN_VISIBLE_MS = 1600
+// Fade out the instant preloader. App calls window.__hidePreloader() on mount.
+// A short minimum on-screen time avoids a flash; the safety timeout guarantees
+// it clears even if the app never mounts.
+const MIN_VISIBLE_MS = 600
 const SAFETY_MS = 5000
 const startedAt = performance.now()
 let dismissed = false

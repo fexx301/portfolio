@@ -2,9 +2,9 @@ import { personalData } from '../data/data'
 import { Mail, Code2, Sparkles } from 'lucide-react'
 
 const stats = [
-  { label: 'Projects Built', value: '4+' },
-  { label: 'Years Coding', value: '3+' },
-  { label: 'Technologies', value: '12+' },
+  { label: 'Confirmed XSS on a live bug bounty target', value: '12' },
+  { label: 'Solana programs measured for upgrade risk', value: '117' },
+  { label: 'Public repos on GitHub', value: '30' },
 ]
 
 export default function About() {
@@ -24,10 +24,11 @@ export default function About() {
           <div className="reveal space-y-6">
             <p className="text-grey text-lg leading-relaxed">{personalData.about}</p>
             <p className="text-grey leading-relaxed">
-              Beyond security tooling, I&apos;ve built a pipeline that scrapes and dedupes listings
-              across five platforms daily (Hacklist). I move across the stack comfortably, React
-              and TypeScript up front, FastAPI and PostgreSQL underneath. And I write accessible,
-              cross-browser-safe markup by default, not as an afterthought.
+              Lately most of my work is AI engineering, built with a security mindset: Veto pins
+              the exact code an agent&apos;s wallet may call, Witness sorts out disputes over
+              purchases an AI agent made, and Fūin makes private benchmark scores verifiable. I
+              move across the stack, TypeScript and React up front, Python, FastAPI and Rust
+              underneath.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">

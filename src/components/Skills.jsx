@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Shield, Database, Code2, Globe, Zap, GitBranch } from 'lucide-react'
+import { Shield, Brain, Database, Code2, Globe, Zap, GitBranch } from 'lucide-react'
 import {
   SiJavascript, SiTypescript, SiRust,
   SiHtml5, SiCss,
   SiReact, SiNextdotjs, SiFastapi, SiDjango, SiTailwindcss,
   SiPostgresql, SiSqlite,
-  SiGit, SiDocker, SiKubernetes,
+  SiGit, SiDocker,
 } from 'react-icons/si'
 import { skills } from '../data/data'
 
@@ -36,8 +36,6 @@ const iconMap = {
   'Git':          SiGit,
   'VS Code':      null,
   'Docker':       SiDocker,
-  'Kubernetes':   SiKubernetes,
-  'Firebase':     null,
   // Concepts — lucide icons
   'Web Security':             Shield,
   'Data Pipelines':           Database,
@@ -45,6 +43,7 @@ const iconMap = {
   'Web Scraping':             Globe,
   'Performance Optimization': Zap,
   'CI/CD':                    GitBranch,
+  'AI Engineering':           Brain,
 }
 
 const brandColors = {
@@ -69,8 +68,6 @@ const brandColors = {
   'Git':          '#F05032',
   'VS Code':      '#007ACC',
   'Docker':       '#2496ED',
-  'Kubernetes':   '#326CE5',
-  'Firebase':     '#FFCA28',
   // Concepts
   'Web Security':             '#EF4444',
   'Data Pipelines':           '#A78BFA',
@@ -78,13 +75,13 @@ const brandColors = {
   'Web Scraping':             '#34D399',
   'Performance Optimization': '#F59E0B',
   'CI/CD':                    '#6366F1',
+  'AI Engineering':           '#D97757',
 }
 
 const svgIconMap = {
   'Python':   'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
   'VS Code':  'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',
   'Redis':    'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg',
-  'Firebase': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg',
   'MongoDB':  'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
 }
 

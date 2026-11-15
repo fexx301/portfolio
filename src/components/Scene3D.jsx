@@ -58,10 +58,7 @@ export default function Scene3D() {
         }}
         onCreated={({ gl }) => {
           gl.setClearColor('#020408', 1)
-          gl.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-          // Wait one frame so the first scene render has painted, then dismiss
-          // the preloader — the loader stays up until the 3D is actually visible.
-          requestAnimationFrame(() => window.__hidePreloader?.())
+          gl.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
         }}
       >
         <CameraController />
