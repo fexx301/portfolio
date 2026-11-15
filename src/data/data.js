@@ -28,7 +28,7 @@ export const now = {
     },
   ],
   studying: [
-    { text: "Inference engineering, with a gamified study web app a friend and I built from the Inference Engineering book." },
+    { text: "Inference engineering, with a gamified study web app a friend and I built from Philip Kiely's book Inference Engineering." },
   ],
   reading: [],
 }
@@ -152,6 +152,6 @@ export const experiences = [
     company: "Independent · hackathons & open source",
     period: "2026",
     description:
-      "Building AI systems end to end, from agent guardrails to verifiable evaluation. Studying inference engineering with a gamified web app a friend and I built from the Inference Engineering book. Shipped 30 public repos this year, many as hackathon entries: Witness (PayPal AI Hackathon), Fūin (NEAR Hackathon), LevelProof (AI Builder Hackathon), Downstream (FalkorDB Graph Hacks), Squad (Strike Hackathon) and OathCast (Telegraph Hackathon Season II).",
+      "Building AI systems end to end, from agent guardrails to verifiable evaluation. Studying inference engineering with a gamified web app a friend and I built from Philip Kiely's book Inference Engineering. Shipped 30 public repos this year, many as hackathon entries: Witness (PayPal AI Hackathon), Fūin (NEAR Hackathon), LevelProof (AI Builder Hackathon), Downstream (FalkorDB Graph Hacks), Squad (Strike Hackathon) and OathCast (Telegraph Hackathon Season II).",
   },
 ]
