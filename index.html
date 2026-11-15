@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary meta -->
+    <title>Femi Ogunsanya — Fullstack Developer</title>
+    <meta
+      name="description"
+      content="Femi Ogunsanya is a fullstack developer building security-focused tools in React and Python/FastAPI — XSS scanners, data pipelines, and interfaces that don't break."
+    />
+    <meta name="author" content="Femi Ogunsanya" />
+    <meta name="keywords" content="Femi Ogunsanya, fullstack developer, web security, React, Python, FastAPI, Lagos" />
+    <meta name="theme-color" content="#020408" />
+
+    <!-- IMPORTANT: replace https://femiogunsanya.dev with your real deployed URL
+         (both the canonical link and the og:url / image URLs below) so link
+         previews and search results resolve correctly. -->
+    <link rel="canonical" href="https://femiogunsanya.dev/" />
+
+    <!-- Open Graph (Facebook, LinkedIn, Slack, iMessage, WhatsApp…) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Femi Ogunsanya" />
+    <meta property="og:title" content="Femi Ogunsanya — Fullstack Developer" />
+    <meta
+      property="og:description"
+      content="Security-focused fullstack developer. React + Python/FastAPI. XSS scanners, data pipelines, and interfaces that don't break."
+    />
+    <meta property="og:url" content="https://femiogunsanya.dev/" />
+    <meta property="og:image" content="https://femiogunsanya.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Femi Ogunsanya — Fullstack & Security Developer" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Femi Ogunsanya — Fullstack Developer" />
+    <meta
+      name="twitter:description"
+      content="Security-focused fullstack developer. React + Python/FastAPI. XSS scanners, data pipelines, and interfaces that don't break."
+    />
+    <meta name="twitter:image" content="https://femiogunsanya.dev/og-image.png" />
+    <meta name="twitter:creator" content="@fexx_off" />
+  </head>
+  <body>
+    <!-- Instant preloader: inline CSS so it paints before any bundle loads.
+         React fades it out via window.__hidePreloader after mount. -->
+    <style>
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.4rem;
+        background: #020408;
+        transition: opacity 0.6s ease;
+      }
+      #preloader.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      /* Terminal boot log — CSS-only line-by-line reveal so it plays before any
+         bundle loads. Each row fades in on a stagger; the final line keeps a
+         blinking block cursor while the 3D scene finishes booting. */
+      #preloader .pl-term {
+        width: min(360px, 84vw);
+        font-family: ui-monospace, 'SF Mono', 'Menlo', 'Consolas', monospace;
+        font-size: clamp(0.8rem, 2.7vw, 1.05rem);
+        line-height: 1.95;
+        color: #34d399;
+        text-align: left;
+      }
+      #preloader .pl-row {
+        display: flex;
+        justify-content: space-between;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateY(4px);
+        animation: pl-reveal 0.3s ease forwards;
+        animation-delay: calc(var(--i) * 0.24s);
+      }
+      #preloader .pl-row .prompt { color: #10b981; opacity: 0.7; margin-right: 0.6ch; }
+      #preloader .pl-row .ok { color: #6ee7b7; }
+      #preloader .pl-row.final {
+        color: #eafff5;
+        text-shadow: 0 0 12px rgba(52, 211, 153, 0.5);
+      }
+      #preloader .caret {
+        display: inline-block;
+        width: 0.6ch;
+        height: 1em;
+        margin-left: 0.3ch;
+        vertical-align: -0.12em;
+        background: #34d399;
+        box-shadow: 0 0 10px rgba(52, 211, 153, 0.7);
+        animation: pl-caret 0.8s step-end infinite;
+        animation-delay: calc(var(--i) * 0.24s);
+      }
+      @keyframes pl-reveal {
+        to { opacity: 1; transform: none; }
+      }
+      @keyframes pl-caret {
+        50% { opacity: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #preloader .pl-row { opacity: 1; transform: none; animation: none; }
+        #preloader .caret { animation: none; }
+        #preloader { transition: none; }
+      }
+    </style>
+    <div id="preloader" role="status" aria-label="Loading">
+      <div class="pl-term">
+        <div class="pl-row" style="--i: 0"><span><span class="prompt">&gt;</span>initializing renderer</span></div>
+        <div class="pl-row" style="--i: 1"><span><span class="prompt">&gt;</span>loading 3d scene</span><span class="ok">[ ok ]</span></div>
+        <div class="pl-row" style="--i: 2"><span><span class="prompt">&gt;</span>spawning particles</span><span class="ok">[ ok ]</span></div>
+        <div class="pl-row" style="--i: 3"><span><span class="prompt">&gt;</span>compositing bloom</span><span class="ok">[ ok ]</span></div>
+        <div class="pl-row final" style="--i: 4"><span><span class="prompt">&gt;</span>femi ogunsanya<span class="caret"></span></span></div>
+      </div>
+    </div>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

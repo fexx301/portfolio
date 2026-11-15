@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Space+Grotesk:wght@700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Deep ink black */
+  --color-navy: #020408;
+  --color-navy-light: #03060e;
+  --color-charcoal: #0a1a0f;
+  --color-grey: #6b7e96;
+  /* Brand accent — currently neon emerald */
+  --color-accent: #10b981;
+  --color-accent-light: #34d399;
+  --color-accent-dark: #059669;
+  --font-inter: 'DM Sans', system-ui, sans-serif;
+  --font-orbitron: 'Syne', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-inter);
+  background-color: #020408;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+#root {
+  position: relative;
+  z-index: 10;
+}
+
+.font-orbitron {
+  font-family: var(--font-orbitron);
+}
+
+/* White to neon-green gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #6ee7b7 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Dark glass with emerald border */
+.glass {
+  background: rgba(3, 6, 14, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+/* Emerald glow */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35), 0 0 40px rgba(16, 185, 129, 0.12);
+}
+
+/* Name shimmer animation for hero */
+.name-shimmer {
+  background: linear-gradient(135deg, #d1fae5, #6ee7b7, #34d399, #6ee7b7, #d1fae5);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: nameShimmer 6s ease-in-out infinite;
+}
+
+@keyframes nameShimmer {
+  0%, 100% { background-position: 0% center; }
+  50%      { background-position: 100% center; }
+}
+
+/* Skill pill icon — muted by default, shows brand colour on pill hover */
+.pill-icon {
+  opacity: 0.65;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+.pill:hover .pill-icon {
+  color: var(--pill-brand, currentColor);
+  opacity: 1;
+}
+/* External SVG icons (devicons) — greyscale at rest, full colour on hover */
+.pill-svg-icon {
+  opacity: 0.65;
+  filter: grayscale(1);
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+.pill:hover .pill-svg-icon {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 10rem 4rem;
+  }
+}
+
+/* Shark-fin wake ripple — streams backward from the fin base */
+@keyframes fin-wake {
+  0% {
+    transform: scaleX(0.3);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: scaleX(1.5);
+    opacity: 0;
+  }
+}
+
+/* Scroll-cue beam traveling down the line */
+@keyframes scroll-beam {
+  0% {
+    transform: translateY(-110%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(280%);
+    opacity: 0;
+  }
+}
+
+/* Respect reduced motion — keep color/opacity feedback, drop movement */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: color 0.1s, opacity 0.1s, background-color 0.1s, border-color 0.1s, box-shadow 0.1s !important;
+  }
+}
+
+/* Native scrollbar hidden — the shark fin is the scroll indicator */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
