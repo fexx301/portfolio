@@ -53,10 +53,33 @@ export default function ScrollFin() {
       if (!raf) raf = requestAnimationFrame(update)
     }
 
+    // Drag the fin like a scrollbar thumb: fin travel maps linearly onto page scroll.
+    let drag = null
+    const onDown = (e) => {
+      e.preventDefault()
+      fin.setPointerCapture(e.pointerId)
+      drag = { y: e.clientY, scroll: window.scrollY }
+    }
+    const onMove = (e) => {
+      if (!drag) return
+      const max = document.documentElement.scrollHeight - window.innerHeight
+      const track = window.innerHeight - 72 - 28
+      window.scrollTo(0, drag.scroll + ((e.clientY - drag.y) * max) / track)
+    }
+    const onUp = () => { drag = null }
+
     update()
+    fin.addEventListener('pointerdown', onDown)
+    fin.addEventListener('pointermove', onMove)
+    fin.addEventListener('pointerup', onUp)
+    fin.addEventListener('pointercancel', onUp)
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll)
     return () => {
+      fin.removeEventListener('pointerdown', onDown)
+      fin.removeEventListener('pointermove', onMove)
+      fin.removeEventListener('pointerup', onUp)
+      fin.removeEventListener('pointercancel', onUp)
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
       if (raf) cancelAnimationFrame(raf)
@@ -66,7 +89,11 @@ export default function ScrollFin() {
 
   return (
     <div className="fixed right-0 top-0 z-50 pointer-events-none hidden md:block">
-      <div ref={finRef} className="will-change-transform">
+      <div
+        ref={finRef}
+        title="Drag to scroll"
+        className="will-change-transform pointer-events-auto cursor-grab active:cursor-grabbing touch-none select-none"
+      >
         <div
           ref={bodyRef}
           className="relative origin-center transition-transform duration-300 ease-out"
