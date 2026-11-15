@@ -1,5 +1,5 @@
-import { personalData } from '../data/data'
-import { Mail, Code2, Sparkles } from 'lucide-react'
+import { personalData, profile } from '../data/data'
+import { Mail, Code2 } from 'lucide-react'
 
 const stats = [
   { label: 'Confirmed XSS on a live bug bounty target', value: '12' },
@@ -12,11 +12,12 @@ export default function About() {
     <section id="about" className="relative section-padding">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
-          <p className="section-title font-orbitron text-accent-light text-sm tracking-[0.3em] uppercase mb-4">
-            About Me
+          <p className="section-title inline-flex items-center gap-3 font-mono text-accent-light text-xs tracking-[0.3em] uppercase mb-4">
+            <span className="w-9 h-px bg-accent" aria-hidden="true" />
+            01 · About
           </p>
           <h2 className="section-title font-orbitron text-3xl md:text-5xl font-bold text-white">
-            Building things <span className="text-gradient">that matter</span>
+            AI engineering, <span className="text-gradient">built like security tooling</span>
           </h2>
         </div>
 
@@ -60,19 +61,19 @@ export default function About() {
             ))}
 
             <div className="reveal glass rounded-2xl p-6 border-accent/30">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                  <Sparkles size={22} className="text-accent-light" />
-                </div>
-                <div>
-                  <h3 className="font-orbitron text-lg font-semibold text-white mb-2">
-                    Open to opportunities
-                  </h3>
-                  <p className="text-grey text-sm">
-                    Available for full-stack roles, freelance projects, and collaborations.
-                  </p>
-                </div>
-              </div>
+              <h3 className="font-mono text-[11px] tracking-[0.3em] uppercase text-grey mb-4">
+                At a glance
+              </h3>
+              <dl className="grid grid-cols-[max-content_1fr] gap-x-6 gap-y-3 text-sm">
+                {profile.map(([term, value]) => (
+                  <div key={term} className="contents">
+                    <dt className="font-mono text-[11px] tracking-[0.15em] uppercase text-grey self-center">
+                      {term}
+                    </dt>
+                    <dd className="text-white">{value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
         </div>

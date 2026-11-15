@@ -175,11 +175,12 @@ export default function Skills() {
     <section id="skills" ref={sectionRef} className="relative section-padding">
       <div className="max-w-4xl mx-auto">
         <div className="mb-16 text-center">
-          <p className="section-title font-orbitron text-accent-light text-sm tracking-[0.3em] uppercase mb-4">
-            Expertise
+          <p className="section-title inline-flex items-center gap-3 font-mono text-accent-light text-xs tracking-[0.3em] uppercase mb-4">
+            <span className="w-9 h-px bg-accent" aria-hidden="true" />
+            03 · Stack
           </p>
           <h2 className="section-title font-orbitron text-3xl md:text-5xl font-bold text-white">
-            Skills & <span className="text-gradient">technologies</span>
+            The tools <span className="text-gradient">behind the work</span>
           </h2>
         </div>
 

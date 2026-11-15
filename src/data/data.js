@@ -11,7 +11,41 @@ export const personalData = {
     "I build full-stack tools that solve real problems — not portfolio filler. My XSS scanner chained WAF detection, DOM sink analysis, and canary injection into a single pipeline and found 12 confirmed vulnerabilities on a live bug bounty target. I care as much about the pipeline behind an interface as the interface itself.",
 }
 
+// "At a glance" card in About.
+export const profile = [
+  ["Based", "Lagos, Nigeria (WAT, UTC+1)"],
+  ["Working", "AI engineering · full-stack · security"],
+  ["Stack", "TypeScript, Python, Rust"],
+  ["Open to", "Remote full-time · freelance · collaborations"],
+]
+
+// "Now" section. Add items as they change; an empty list hides its column.
+export const now = {
+  building: [
+    {
+      text: "OathCast, a transparent calibration court for short-horizon machine forecasts, for Telegraph Hackathon Season II.",
+      link: "https://github.com/fexx301/oathcast",
+    },
+  ],
+  studying: [
+    { text: "Inference engineering, with a gamified study web app a friend and I built from Philip Kiely's book Inference Engineering." },
+  ],
+  reading: [],
+}
+
 export const projects = [
+  {
+    id: 6,
+    title: "Veto",
+    featured: true,
+    description:
+      "Pins the exact program deployment an AI agent's Solana wallet may call. After any upgrade the agent's call fails on-chain until the operator reviews and re-approves the new code. Backed by a mainnet study of the 117 programs Jupiter routes swaps through: 115 are still upgradeable and at least 67 were upgraded in the last 180 days.",
+    tags: ["Rust", "Solana", "JavaScript", "Python"],
+    image: "/veto.webp",
+    imageContain: true,
+    link: "https://veto-demo.duckdns.org",
+    github: "https://github.com/fexx301/veto",
+  },
   {
     id: 3,
     title: "XSS Scan",
@@ -21,17 +55,6 @@ export const projects = [
     image: "/xss-scan.webp",
     imageContain: true,
     github: "https://github.com/fexx301/xss-scan",
-  },
-  {
-    id: 6,
-    title: "Veto",
-    description:
-      "Pins the exact program deployment an AI agent's Solana wallet may call. After any upgrade the agent's call fails on-chain until the operator reviews and re-approves the new code. Backed by a mainnet study of the 117 programs Jupiter routes swaps through: 115 are still upgradeable and at least 67 were upgraded in the last 180 days.",
-    tags: ["Rust", "Solana", "JavaScript", "Python"],
-    image: "/veto.webp",
-    imageContain: true,
-    link: "https://veto-demo.duckdns.org",
-    github: "https://github.com/fexx301/veto",
   },
   {
     id: 7,
@@ -122,5 +145,13 @@ export const experiences = [
     period: "July 2025",
     description:
       "CompTIA A+ Core 1 & 2 — Configuring Client Operating Systems. Java SE8 OCA and OCP — Oracle 12c Administrator.",
+  },
+  {
+    id: 4,
+    role: "AI Engineering",
+    company: "Independent · hackathons & open source",
+    period: "2026",
+    description:
+      "Building AI systems end to end, from agent guardrails to verifiable evaluation. Studying inference engineering with a gamified web app a friend and I built from Philip Kiely's book Inference Engineering. Shipped 30 public repos this year, many as hackathon entries: Witness (PayPal AI Hackathon), Fūin (NEAR Hackathon), LevelProof (AI Builder Hackathon), Downstream (FalkorDB Graph Hacks), Squad (Strike Hackathon) and OathCast (Telegraph Hackathon Season II).",
   },
 ]

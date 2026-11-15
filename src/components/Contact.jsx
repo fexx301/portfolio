@@ -46,11 +46,12 @@ export default function Contact() {
     <section id="contact" className="relative section-padding">
       <div className="max-w-4xl mx-auto">
         <div className="mb-16 text-center">
-          <p className="section-title font-orbitron text-accent-light text-sm tracking-[0.3em] uppercase mb-4">
-            Get in Touch
+          <p className="section-title inline-flex items-center gap-3 font-mono text-accent-light text-xs tracking-[0.3em] uppercase mb-4">
+            <span className="w-9 h-px bg-accent" aria-hidden="true" />
+            06 · Reach
           </p>
           <h2 className="section-title font-orbitron text-3xl md:text-5xl font-bold text-white">
-            Let&apos;s build <span className="text-gradient">something great</span>
+            Let&apos;s build <span className="text-gradient">something useful</span>
           </h2>
         </div>
 

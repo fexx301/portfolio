@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { personalData } from '../data/data'
+import AskMe from './AskMe'
 
 const VERT = `
 attribute vec2 a_pos;
@@ -133,7 +134,6 @@ export default function Hero() {
   const canvasRef  = useRef(null)
   const sectionRef = useRef(null)
   const contentRef = useRef(null)
-  const cueRef     = useRef(null)
 
   // WebGL aurora shader
   useEffect(() => {
@@ -248,7 +248,6 @@ export default function Hero() {
   // Fade + lift content as user scrolls past hero
   useEffect(() => {
     const content = contentRef.current
-    const cue     = cueRef.current
     const section = sectionRef.current
 
     const onScroll = () => {
@@ -258,7 +257,6 @@ export default function Hero() {
         content.style.opacity  = String(1 - p)
         content.style.transform = `translateY(${p * -50}px)`
       }
-      if (cue) cue.style.opacity = window.scrollY > 60 ? '0' : '1'
     }
 
     onScroll()
@@ -337,22 +335,10 @@ export default function Hero() {
           </a>
         </div>
 
+        <AskMe />
+
       </div>
 
-      <a
-        ref={cueRef}
-        href="#about"
-        onClick={scrollTo('#about')}
-        className="group absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 transition-opacity duration-500"
-        aria-label="Scroll down"
-      >
-        <span className="relative block h-10 w-px overflow-hidden bg-white/10">
-          <span className="absolute inset-x-0 top-0 block h-1/2 w-px bg-gradient-to-b from-transparent via-accent-light to-transparent animate-[scroll-beam_1.4s_linear_infinite]" />
-        </span>
-        <span className="font-orbitron text-[10px] tracking-[0.35em] text-grey/50 uppercase group-hover:text-accent-light transition-colors">
-          Scroll
-        </span>
-      </a>
     </section>
   )
 }
