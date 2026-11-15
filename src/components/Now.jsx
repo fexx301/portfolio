@@ -2,6 +2,7 @@ import { now } from '../data/data'
 
 const columns = [
   { key: 'building', title: 'Building' },
+  { key: 'studying', title: 'Studying' },
   { key: 'reading', title: 'Reading' },
 ].filter((c) => now[c.key]?.length)
 

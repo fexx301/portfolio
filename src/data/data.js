@@ -27,6 +27,7 @@ export const now = {
       link: "https://github.com/fexx301/oathcast",
     },
   ],
+  studying: [{ text: "Inference engineering" }],
   reading: [],
 }
 
@@ -142,5 +143,13 @@ export const experiences = [
     period: "July 2025",
     description:
       "CompTIA A+ Core 1 & 2 — Configuring Client Operating Systems. Java SE8 OCA and OCP — Oracle 12c Administrator.",
+  },
+  {
+    id: 4,
+    role: "AI Engineering",
+    company: "Independent · hackathons & open source",
+    period: "2026",
+    description:
+      "Building AI systems end to end, from agent guardrails to verifiable evaluation, and studying inference engineering. Shipped 30 public repos this year, many as hackathon entries: Witness (PayPal AI Hackathon), Fūin (NEAR Hackathon), LevelProof (AI Builder Hackathon), Downstream (FalkorDB Graph Hacks), Squad (Strike Hackathon) and OathCast (Telegraph Hackathon Season II).",
   },
 ]
