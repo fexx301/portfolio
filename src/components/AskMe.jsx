@@ -2,8 +2,8 @@ import { useRef, useState } from 'react'
 import { personalData, profile, projects } from '../data/data'
 
 const suggestions = [
-  { label: 'veto', q: 'What is Veto and why did you build it?' },
-  { label: 'xss scan', q: 'How did XSS Scan find 12 bugs?' },
+  { label: 'fūin', q: 'What is Fūin and how does it verify a benchmark?' },
+  { label: 'levelproof', q: 'How does LevelProof check a puzzle can be won?' },
   { label: 'hiring?', q: 'Are you open to work?' },
 ]
 
