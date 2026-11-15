@@ -46,6 +46,8 @@ const gridPattern = {
   backgroundSize: '22px 22px',
 }
 
+const lastCardAlone = (projects.length - projects.filter((p) => p.featured).length) % 2 === 1
+
 export default function Projects() {
   const sectionRef = useRef(null)
   const cardsRef = useRef([])
@@ -145,20 +147,24 @@ export default function Projects() {
     <section id="projects" ref={sectionRef} className="relative section-padding">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16 text-center">
-          <p className="section-title font-orbitron text-accent-light text-sm tracking-[0.3em] uppercase mb-4">
-            Selected Work
+          <p className="section-title inline-flex items-center gap-3 font-mono text-accent-light text-xs tracking-[0.3em] uppercase mb-4">
+            <span className="w-9 h-px bg-accent" aria-hidden="true" />
+            02 · Work
           </p>
           <h2 className="section-title font-orbitron text-3xl md:text-5xl font-bold text-white">
-            Projects that <span className="text-gradient">define me</span>
+            Things I built, <span className="text-gradient">broke and fixed</span>
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8" style={{ perspective: '1200px' }}>
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            // Featured cards span the row; so does the last card when it would sit alone.
+            const wide = project.featured || (lastCardAlone && index === projects.length - 1)
+            return (
             <div
               key={project.id}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="will-change-transform"
+              className={`will-change-transform ${wide ? 'md:col-span-2' : ''}`}
             >
               <div
                 ref={(el) => (tiltsRef.current[index] = el)}
@@ -166,9 +172,9 @@ export default function Projects() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <div className="relative p-8 h-full flex flex-col">
+                <div className={`relative p-8 h-full flex flex-col ${wide ? 'md:flex-row md:gap-8' : ''}`}>
                   {/* Thumbnail: real screenshot or gradient, with tech chips over a scrim */}
-                  <div className="mb-6 h-48 rounded-xl overflow-hidden relative">
+                  <div className={`mb-6 h-48 rounded-xl overflow-hidden relative ${wide ? 'md:mb-0 md:w-1/2 md:h-auto md:min-h-64 shrink-0' : ''}`}>
                     <div
                       ref={(el) => (thumbsRef.current[index] = el)}
                       className="absolute inset-x-0 -top-[15%] h-[130%]"
@@ -202,6 +208,11 @@ export default function Projects() {
                     </div>
                   </div>
 
+                  <div className="flex flex-col flex-grow">
+                  <p className="font-mono text-[10px] tracking-[0.2em] text-grey mb-2">
+                    P-{String(index + 1).padStart(3, '0')}
+                    {project.featured && ' · FEATURED'}
+                  </p>
                   <h3 className="font-orbitron text-xl font-bold text-white mb-3 group-hover:text-accent-light transition-colors">
                     {project.title}
                   </h3>
@@ -231,10 +242,12 @@ export default function Projects() {
                       </a>
                     )}
                   </div>
+                  </div>
                 </div>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

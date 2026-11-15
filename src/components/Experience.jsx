@@ -54,8 +54,9 @@ export default function Experience() {
     <section id="experience" ref={sectionRef} className="relative section-padding">
       <div className="max-w-4xl mx-auto">
         <div className="mb-16 text-center">
-          <p className="section-title font-orbitron text-accent-light text-sm tracking-[0.3em] uppercase mb-4">
-            Journey
+          <p className="section-title inline-flex items-center gap-3 font-mono text-accent-light text-xs tracking-[0.3em] uppercase mb-4">
+            <span className="w-9 h-px bg-accent" aria-hidden="true" />
+            04 · Background
           </p>
           <h2 className="section-title font-orbitron text-3xl md:text-5xl font-bold text-white">
             Experience & <span className="text-gradient">background</span>
